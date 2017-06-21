@@ -6,17 +6,12 @@
         <div>
             <h1><a href="">Django Girls Blog</a></h1>
         </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Như chúng ta đã biết, Django là một framwork rất mạnh để chúng ta xây dựng các ứng dụng web bằng ngôn ngữ Python. Nó không thua kém gì ngôn ngữ PHP cả</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Hôm nay tôi sẽ trình bày cho các bạn các biết cấu hình 1 web site Django cơ bản để các bạn mới làm quen với nó không bị bở ngõ</p>
-        </div>
+	{% for post in posts %}
+    <div>
+        <p>published: {{ post.published_date }}</p>
+        <h1><a href="">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+	{% endfor %}
     </body>
 </html>
